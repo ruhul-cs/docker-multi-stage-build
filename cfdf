@@ -1,0 +1,26 @@
+# STAGE - 1
+FROM node:18-slim AS builder
+WORKDIR /app 
+COPY package*.json ./
+RUN npm install 
+
+COPY . .
+
+# STAGE - 2
+
+FROM node:18-slim AS production 
+WORKDIR /app 
+#/app/package*.json /app/start.sh /app/src/ these files will be copied from builder stage to current directory /app
+# COPY --from=builder /app/package*.json /app/start.sh /app/src/ ./
+
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/start.sh ./
+COPY --from=builder /app/src ./src/
+COPY --from=builder /app/node_modules ./node_modules/
+# removing the unnecessary or dev dependencies from node_modules , 
+#prune will remove all the devDependencies module from node_modules
+RUN npm prune --production 
+# RUN npm install --only=production
+# ENTRYPOINT ["node", "index.js"]
+EXPOSE 5000
+CMD ["npm","start"]

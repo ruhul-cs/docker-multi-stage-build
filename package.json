@@ -1,7 +1,6 @@
 {
   "name": "docker-multi-stage-build",
   "version": "1.0.0",
-  "type":"commonjs",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
