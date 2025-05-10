@@ -1,13 +1,15 @@
 {
   "name": "docker-multi-stage-build",
   "version": "1.0.0",
-  "main": "index.js",
+  "type":"commonjs",
+  "main": "src/app.js",
   "scripts": {
+    "start": "node src/app.js",
     "test": "jest"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "A small Node.js app with Docker and Jest",
   "dependencies": {
     "express": "^5.1.0"
   },
