@@ -1,14 +1,12 @@
 {
-  "name": "docker-multi-stage-build",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "my-node-app",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

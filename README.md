@@ -9,3 +9,9 @@ docker run -p <host_port>:<container_port>  --name <container_name> \
        --hostname <host_name> 
        --network <custom_network>
 ```
+### Mention network While building the image:
+
+```sh
+docker build --network=host -t <image_name>:<version_name> .
+
+```
