@@ -10,6 +10,6 @@ COPY . .
 FROM node:18-slim AS production 
 WORKDIR /app 
 COPY --from=builder /app /app
-RUN npm install --only=production --verbose
+RUN npm cache clean --force && npm install --only=production --verbose
 EXPOSE 5000
 ENTRYPOINT ["npm","start"]
