@@ -9,14 +9,14 @@ docker run -p <host_port>:<container_port>  --name <container_name> \
        --hostname <host_name> 
        --network <custom_network>
 ```
-<<<<<<< HEAD
+
 ### Mention network While building the image:
 
 ```sh
 docker build --network=host -t <image_name>:<version_name> .
 
 ```
-=======
+
 ### Docker best Practise:
 - একটি application containarize করার মূল উদ্দেশ্যই হচ্ছে, application এর run time environment কে স্টেবল করা। 
 আমরা যদি ডকার এর বেইজ ইমেজ এ 
@@ -44,5 +44,3 @@ RUN wget example.com/download
 এ ধরনের কমান্ড একটি লেয়ারে লিখাঃ 
 RUN apt-get update &&  apt-get upgrade && wget example.com/download
 
-
->>>>>>> origin/uat
