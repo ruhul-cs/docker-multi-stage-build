@@ -1,5 +1,5 @@
 
-echo "DOCKER HOT RELOAD PROCESS...."
+echo "DOCKER HOT RELOAD PROCESS.. .."
 container_id=$(docker ps --filter ancestor=x:v1 --format "{{.ID}}")
 echo "grab container :"$container_id
 docker stop $container_id
