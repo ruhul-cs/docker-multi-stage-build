@@ -6,10 +6,6 @@ const PORT = process.env.PORT || 5000;
 
 app.get("/", product);
 
-app.get("/add", (req, res) => {
-  const result = add(2, 3);
-  res.json({ result });
-});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
