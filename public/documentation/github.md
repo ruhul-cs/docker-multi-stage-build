@@ -19,3 +19,9 @@ git log
 
 create a new branch with inheriting all the code from main:
 git checkout -b <branch_name>
+
+to check remote repositories:
+git remote -v
+
+forking a repository:
+git remote add <username> <path>
