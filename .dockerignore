@@ -6,6 +6,6 @@ Dockerfile
 .dockerignore
 
 tests
-*.log
+*log
 .git
 

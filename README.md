@@ -9,18 +9,10 @@ docker run -p <host_port>:<container_port>  --name <container_name> \
        --hostname <host_name> 
        --network <custom_network>
 ```
-
-### Mention network While building the image:
-
-```sh
-docker build --network=host -t <image_name>:<version_name> .
-
-```
-
 ### Docker best Practise:
 - একটি application containarize করার মূল উদ্দেশ্যই হচ্ছে, application এর run time environment কে স্টেবল করা। 
 আমরা যদি ডকার এর বেইজ ইমেজ এ 
-FROM pyton:latest ব্যাবহার করি, তাহলে হয়ত এখন চলছে, কিন্তু কিছুদিন বা বছর পর পাইথন এর ভার্শন এর মিস ম্যাচ এর কারনে প্রজেক্ট এ আন এক্সপেক্টেড এরর দেখা দিতে পারে। তাই best practise হচ্ছে, বেইজ ইমেজ এ specific version উল্লেখ করা। 
+FROM python:latest ব্যাবহার করি, তাহলে হয়ত এখন চলছে, কিন্তু কিছুদিন বা বছর পর পাইথন এর ভার্শন এর মিস ম্যাচ এর কারনে প্রজেক্ট এ আন এক্সপেক্টেড এরর দেখা দিতে পারে। তাই best practise হচ্ছে, বেইজ ইমেজ এ specific version উল্লেখ করা। 
 উদাহরনঃ 
 FROM node:18 
 
@@ -43,4 +35,5 @@ RUN wget example.com/download
 এখানে এই ইমেজ এর সাইজ significantly বেড়ে যাবে। তাই উচিৎ ঃ 
 এ ধরনের কমান্ড একটি লেয়ারে লিখাঃ 
 RUN apt-get update &&  apt-get upgrade && wget example.com/download
+
 
