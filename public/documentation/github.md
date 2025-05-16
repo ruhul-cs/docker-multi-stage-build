@@ -16,3 +16,6 @@ git pull origin <branch_name>
 return from git log:
 git log
 :q
+
+create a new branch with inheriting all the code from main:
+git checkout -b <branch_name>
