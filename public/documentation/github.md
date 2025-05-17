@@ -35,4 +35,8 @@
     git remote add <remote-name> <repo-path>
 
 ```
+### Untrack a file
 
+```bash
+    git rm --cached <file-name>
+```
