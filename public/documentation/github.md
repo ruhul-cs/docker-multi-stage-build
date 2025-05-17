@@ -21,6 +21,7 @@
 # return from git log:
 ```bash
     git log
+    git log --pretty=oneline
     :q
 ```
 ### create a new branch with inheriting all the code from main:
@@ -39,4 +40,5 @@
 
 ```bash
     git rm --cached <file-name>
+    git rm -r --cached <folder-name> // removing from a folder
 ```
