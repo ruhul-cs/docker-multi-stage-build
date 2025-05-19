@@ -1,14 +1,13 @@
 import { describe, it, expect, vi } from "vitest";
 import { product } from "../../../src/controller/product/product.js";
 
-describe("Product Controller", () => {
+describe("product", () => {
   it("Test-1#should return the array list", async () => {
     const expectedList = ["cooker", "washingmaching", "dish", "car", "fridge", "ac"];
     const req = {};
     const res = {
       json: vi.fn()
     };
-
     await product(req, res);
     expect(res.json).toHaveBeenCalledWith(expectedList);
   });
@@ -29,11 +28,9 @@ describe("Product Controller", () => {
         json:vi.fn()
     }
     await product(req,res)
-
     const resArray = res.json.mock.calls[0][0]
     const allExist = randomArray.every(element => resArray.includes(element))
     expect(allExist).toBe(true)
-
   })
   it("Test-4#should return false because the array element can be urbitary",async()=>{
     const randomArray = ["washingmaching", "car","x" ,"fridge", "ac","dish"]
@@ -42,10 +39,8 @@ describe("Product Controller", () => {
         json:vi.fn()
     }
     await product(req,res)
-
     const resArray = res.json.mock.calls[0][0]
     const allExist = randomArray.every(element => resArray.includes(element))
     expect(allExist).toBe(false)
-
   })
 });

@@ -36,4 +36,5 @@ RUN wget example.com/download
 এ ধরনের কমান্ড একটি লেয়ারে লিখাঃ 
 RUN apt-get update &&  apt-get upgrade && wget example.com/download
 
+- বেইজ লেয়ার যদি বড় হয় তাহলে Docker ইমেজ ফাইল লিখার সময় আমাদের মাল্টিস্টেজ এ লিখা উচিৎ । 
 

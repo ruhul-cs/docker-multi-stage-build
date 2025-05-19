@@ -4,6 +4,9 @@ const product = async(req,res)=>{
     return await res.json(list_item)
 }
 
+
+
+
 module.exports = {
     product
 }
