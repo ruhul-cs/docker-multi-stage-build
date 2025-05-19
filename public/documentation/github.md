@@ -35,3 +35,11 @@ git branch -r
 git checkout -b <branch-name> origin/<branch-name>
 
 ```
+
+## How to clone a private repository
+- We should use SSH sothat we don't have to authienticate the user twise. Using https we have to go through auth.   
+
+## to get latest code from a branch
+- git checkout <your-branch>
+- git fetch origin main
+- git rebase origin/main
