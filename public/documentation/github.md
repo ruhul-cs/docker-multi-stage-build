@@ -1,45 +1,44 @@
-# Git and Github
-## First time git push on a new branch
-```sh
-git push --set-upstream origin uat
+### First time push to a newly created branch
+```bash
+    git push --set-upstream origin uat
 ```
-## to marge from uat to main : 
-```sh
-git pull origin main 
-git merge uat 
-git push origin main 
-```
-
-## to pull latest code from github to local machine:
-```sh
-git commit -m "commit message"
-git push
-git pull origin <branch_name>
+### to marge from uat to main : 
+```bash
+    git pull origin main 
+    git merge uat 
+    git push origin main 
 ```
 
+### to pull latest code from github to local machine:
 
-## return from git log:
-git log
-:q
-
-## create a new branch with inheriting all the code from main:
-```sh
-git checkout -b <branch_name>
-
-```
-## Fetching All the branchs from github
-
-```sh
-git fetch --all
-git branch -r
-git checkout -b <branch-name> origin/<branch-name>
-
+```bash
+    git commit -m "commit message"
+    git push
+    git pull origin <branch_name>
 ```
 
-## How to clone a private repository
-- We should use SSH sothat we don't have to authienticate the user twise. Using https we have to go through auth.   
 
-## to get latest code from a branch
-- git checkout <your-branch>
-- git fetch origin main
-- git rebase origin/main
+# return from git log:
+```bash
+    git log
+    git log --pretty=oneline
+    :q
+```
+### create a new branch with inheriting all the code from main:
+```bash
+    git checkout -b <branch_name>
+```
+
+
+### to check remote repositories and add a new remote:
+```bash
+    git remote -v
+    git remote add <remote-name> <repo-path>
+
+```
+### Untrack a file
+
+```bash
+    git rm --cached <file-name>
+    git rm -r --cached <folder-name> // removing from a folder
+```
