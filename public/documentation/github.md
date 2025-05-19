@@ -30,15 +30,12 @@
 ```
 
 
-### to check remote repositories and add a new remote:
-```bash
-    git remote -v
-    git remote add <remote-name> <repo-path>
+## to get latest code from a branch
+- git checkout <your-branch>
+- git fetch origin main
+- git rebase origin/main
 
-```
-### Untrack a file
 
-```bash
-    git rm --cached <file-name>
-    git rm -r --cached <folder-name> // removing from a folder
-```
+## see the different log between two branch
+- git log uat..ruhul
+- git log ruhul..uat
