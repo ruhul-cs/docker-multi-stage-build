@@ -43,3 +43,8 @@ git checkout -b <branch-name> origin/<branch-name>
 - git checkout <your-branch>
 - git fetch origin main
 - git rebase origin/main
+
+
+## see the different log between two branch
+- git log uat..ruhul
+- git log ruhul..uat
