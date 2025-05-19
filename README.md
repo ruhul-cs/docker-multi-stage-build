@@ -9,10 +9,7 @@ docker run -p <host_port>:<container_port>  --name <container_name> \
        --hostname <host_name> 
        --network <custom_network>
 ```
-# Docker best Practise:
-
-Docker ইমেজকে ছোট, নিরাপদ ও প্রোডাকশন-রেডি রাখতে পারলে শুধু ইমেজ পারফরম্যান্সই নয়, বরং ডিপ্লয়মেন্ট সহজ হয়, মেইনটেন্যান্সে সময় বাঁচে এবং ইমেজ বিল্ড টাইম উল্লেখযোগ্যভাবে কমে আসে। চলুন ডকার ইমেজ লিখার কিছু বেস্ট প্র্যাকটিস এর সাথে পরিচিত হইঃ
-
+### Docker best Practise:
 - একটি application containarize করার মূল উদ্দেশ্যই হচ্ছে, application এর run time environment কে স্টেবল করা। 
 আমরা যদি ডকার এর বেইজ ইমেজ এ 
 FROM python:latest ব্যাবহার করি, তাহলে হয়ত এখন চলছে, কিন্তু কিছুদিন বা বছর পর পাইথন এর ভার্শন এর মিস ম্যাচ এর কারনে প্রজেক্ট এ আন এক্সপেক্টেড এরর দেখা দিতে পারে। তাই best practise হচ্ছে, বেইজ ইমেজ এ specific version উল্লেখ করা। 
