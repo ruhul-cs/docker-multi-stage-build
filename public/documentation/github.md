@@ -42,3 +42,5 @@
     git rm --cached <file-name>
     git rm -r --cached <folder-name> // removing from a folder
 ```
+
+#### Adding Feature branch type
