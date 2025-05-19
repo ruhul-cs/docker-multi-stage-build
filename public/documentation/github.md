@@ -49,3 +49,5 @@
 after merging the code with main branch: 
 1. delete branch from local : git branch -d bugix/login
 2. delete branch from remote repo: git push origin --delete bugfix/login
+
+### Git Rebase
