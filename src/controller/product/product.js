@@ -14,4 +14,9 @@ export const kitchen_items = async (req, res) => {
   return res.json(list_item);
 };
 
+export const study_items = async (req, res) => {
+  const list_item = ['books', 'chair', 'tables', 'pen', 'pencil', 'scale'];
+  return res.json(list_item);
+};
+
 
