@@ -23,3 +23,6 @@ export const ride_items = async (req, res) => {
   const list_item = ['car', 'bus', 'truck', 'lorry', 'pickup', 'van'];
   return res.json(list_item);
 };
+/**
+ * hospital product lists
+ */
