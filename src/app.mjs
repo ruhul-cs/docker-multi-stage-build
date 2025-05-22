@@ -19,6 +19,4 @@ const PORT = process.env.PORT || 5000;
 // Define route
 app.get('/', product);
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT);

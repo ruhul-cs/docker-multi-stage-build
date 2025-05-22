@@ -27,6 +27,8 @@ export default defineConfig([
       quotes: ['error', 'single'],
       // Enforce "use strict" directive
       strict: ['error', 'global'],
+      // Disallow console.log statement
+      'no-console': 'error',
     },
   },
   // Use CommonJS for *.js files
