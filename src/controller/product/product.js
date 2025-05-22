@@ -4,8 +4,8 @@ export const product = async (req, res) => {
   return res.json(list_item);
 };
 
-export const productV2 = async (req, res) => {
-  const list_item = ['cooker', 'washingmachine', 'dish', 'car', 'fridge', 'ac'];
+export const plastic_item = async (req, res) => {
+  const list_item = ['bottle', 'jug', 'mog', 'plate', 'glass', 'plastic spoon'];
   return res.json(list_item);
 };
 
