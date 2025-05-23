@@ -5,7 +5,8 @@
   "type":"module",
   "scripts": {
     "start": "node src/app.mjs",
-    "test": "vitest"
+    "test": "vitest",
+    "lint":"eslint ."
   },
   "author": "",
   "license": "ISC",
