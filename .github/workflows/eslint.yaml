@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - ruhul
-      - ruhul-cs
+      - feature/ruhul-cs
       - feature/atik
       - main
 
