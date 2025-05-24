@@ -1,9 +1,9 @@
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 import express from 'express';
 import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 // Load env variables before anything else
-// dotenv.config();
+dotenv.config();
 // Simulate __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
