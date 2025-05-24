@@ -63,3 +63,20 @@ jobs:
       - name: Run container to check health
         run: |
           docker run --rm my-app:test echo "Container is running"
+  notify:
+    name: Notify on Merge to Main
+    runs-on: ubuntu-latest
+    needs: docker
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Send Webhook Notification
+        run: |
+          curl -X POST -H 'Content-Type: application/json' \
+          -d '{
+            "text": "A commit has been merged into *main* in repository: '${{ github.repository }}'",
+            "commit": "${{ github.sha }}",
+            "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+          }' \
+          https://discordapp.com/api/webhooks/1288828610026672200/l7T-5Z9KXnYXEsrXxm5pJ_ExkD906qC6XicL83JzZL7AdDZhocp072LbrBgCR_Oek0Q8
+
