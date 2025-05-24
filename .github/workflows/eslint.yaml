@@ -1,4 +1,4 @@
-name: Lint Code
+name: CI Check Pipeline Integration
 
 on:
   pull_request:
@@ -10,7 +10,6 @@ on:
       - feature/atik
       - main
 
-
 jobs:
   lint:
     name: Run ESLint
@@ -19,11 +18,48 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
       - name: Install dependencies
         run: npm install
+
       - name: Run ESLint
         run: npm run lint
+
+  test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Vitest
+        run: npm run test
+  docker:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build --network=host -t my-app:test .
+
+      - name: Run container to check health
+        run: |
+          docker run --rm my-app:test echo "Container is running"

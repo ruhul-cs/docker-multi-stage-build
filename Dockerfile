@@ -31,4 +31,5 @@ WORKDIR /app
 COPY --from=builder /app /app
 RUN npm install --only=production --verbose
 EXPOSE 5000
-ENTRYPOINT ["npm","start"]
+CMD ["npm", "start"]
+
