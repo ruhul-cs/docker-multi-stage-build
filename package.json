@@ -1,12 +1,12 @@
 {
   "name": "docker-multi-stage-build",
   "version": "1.0.0",
-  "main": "src/app.js",
-  "type":"module",
+  "main": "src/app.mjs",
+  "type": "module",
   "scripts": {
     "start": "node src/app.mjs",
     "test": "vitest",
-    "lint":"eslint ."
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",

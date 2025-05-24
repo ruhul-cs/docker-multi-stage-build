@@ -1,35 +1,29 @@
-
-
-# STAGE - 1
+# STAGE 1 - Builder
 FROM node:18-slim AS builder
-WORKDIR /app 
-COPY package*.json ./
-RUN npm install 
-
-
 WORKDIR /app
 
-# Copy package files first
+# Copy package files
 COPY package*.json ./
 
-# Clean npm cache and install dependencies
-RUN npm cache clean --force && npm install --production --verbose
+# Install ALL dependencies (including devDependencies for build)
+RUN npm ci --verbose
 
-# Copy application code (node_modules will be ignored by .dockerignore)
+# Copy source code
 COPY . .
 
-# Expose the port the app runs on
-EXPOSE 5000
+# STAGE 2 - Production
+FROM node:18-slim AS production
+WORKDIR /app
 
-# Command to run the application
-CMD ["node", "index.js"]
+# Copy package files to production stage
+COPY package*.json ./
 
-# STAGE - 2
+# Install only production dependencies
+RUN npm ci --only=production --verbose
 
-FROM node:18-slim AS production 
-WORKDIR /app 
-COPY --from=builder /app /app
-RUN npm install --only=production --verbose
+# Copy built application from builder stage
+COPY --from=builder /app .
+
 EXPOSE 5000
 CMD ["npm", "start"]
 

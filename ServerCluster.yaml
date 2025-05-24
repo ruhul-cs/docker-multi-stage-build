@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  dmsb-1:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    ports:
+      - "5000:5000"

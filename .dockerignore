@@ -1,11 +1,5 @@
 node_modules
-.gitignore
-tests
 npm-debug.log
-Dockerfile
-.dockerignore
-
 tests
 *log
 .git
-
