@@ -3,3 +3,5 @@ node_modules
 *.log
 package-lock.json
 .db-cred
+nginx/nginx-selfsigned.crt
+nginx/nginx-selfsigned.key
