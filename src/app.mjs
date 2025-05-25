@@ -16,7 +16,7 @@ const { product } = await import(fileUrl.href);
 // Initialize Express
 const app = express();
 const PORT =  5000;
-// Define route
-app.get('/', product);
-// Start server
-app.listen(PORT);
+app.get('/',product)
+app.listen(PORT,'0.0.0.0',()=>{
+    console.log('Server is running on port : ',PORT)
+});
