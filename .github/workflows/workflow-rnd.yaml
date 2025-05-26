@@ -1,13 +1,13 @@
-name: Hello World
-on:
-  push:
-    branches:
-      - main
 
+name: hellow workflow
+on: workflow_dispatch
 jobs:
-  say-hello:
+  first-job:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Print greeting
-        run: echo "Hello, World!"
+      - name: Print Hellow world
+      - run: echo "hellow world !"
+      - name: Print bye world
+      - run: echo "good bye"
+      
+
