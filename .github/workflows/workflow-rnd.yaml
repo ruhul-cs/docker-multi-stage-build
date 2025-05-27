@@ -1,5 +1,7 @@
 name: hellow workflow
+
 on: workflow_dispatch
+
 jobs:
   first-job:
     runs-on: ubuntu-latest
@@ -8,7 +10,7 @@ jobs:
         run: echo "hellow world !"
       - name: Print bye world
         run: echo "good bye"
-        
+
   second-job:
     runs-on: ubuntu-latest
     steps:
