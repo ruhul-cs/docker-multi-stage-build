@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup environment
-      - run: apt-get update && apt-get upgrade
+        run: apt-get update && apt-get upgrade
       - name: setup code 
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
       - name: install NodeJs
-      - uses: action/setup-node@v4 
+        uses: action/setup-node@v4 
       - with:
           node-version: 18
       - name: setup npm 
