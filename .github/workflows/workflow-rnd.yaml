@@ -2,6 +2,7 @@ name: hellow workflow
 
 on: workflow_dispatch
 
+
 jobs:
   first-job:
     runs-on: ubuntu-latest
@@ -10,17 +11,3 @@ jobs:
         run: echo "hellow world !"
       - name: Print bye world
         run: echo "good bye"
-
-  second-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Print Hellow Ubuntu"
-        run: |
-          echo "creating a folder"
-          mkdir my_folder
-          cd my_folder 
-          echo "Hellow Ubuntu..." >> hellow.txt 
-          echo "Removing all the work"
-          cd ..
-          rm -rf my_folder 
-          echo "folder successfully deleted!"
