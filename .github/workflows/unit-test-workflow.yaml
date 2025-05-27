@@ -1,0 +1,21 @@
+name: NodeJs Unit Testing workflow
+on:
+  branches:
+    - main
+
+jobs:
+  unit-testing: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup environment
+      - run: apt-get update && apt-get upgrade
+      - name: setup code 
+      - uses: actions/checkout@v4
+      - name: install NodeJs
+      - uses: action/setup-node@v4 
+      - with:
+          node-version: 18
+      - name: setup npm 
+        run: npm ci 
+      - name: Run test script
+        run: npm start
