@@ -70,3 +70,18 @@ Example:
 
 ```
 ### Always need to fork after add as a collaborator 
+
+### To get latest code from another remote repository :
+
+```bash
+    git remote add upstream git@github.com:MohammadRuhulAmin/docker-multi-stage-build.git
+    git fetch upstream
+    git checkout feature/ruhul-cs
+    git merge upstream/main    
+    git push origin feature/ruhul-cs
+
+
+```
+
+### Workflow Trigger documentation link: 
+[Workflow Trigger/Event List](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows)

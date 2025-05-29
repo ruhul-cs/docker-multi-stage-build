@@ -1,0 +1,36 @@
+name: hellow workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hellow world
+        run: echo "hellow world !"
+      - name: Print bye world
+        run: echo "good bye"
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Print Hellow Ubuntu"
+        run: |
+          echo "creating a folder"
+          mkdir my_folder
+          cd my_folder 
+          echo "Hellow Ubuntu..." >> hellow.txt 
+          echo "Removing all the work"
+          cd ..
+          rm -rf my_folder 
+          echo "folder successfully deleted!"
+      - name: "Create Folder"
+        run: mkdir myfolder2
+      - name: "Go to myfolder2"
+        run: cd myfolder2
+      - name: "create a touch file with some text"
+        run: echo " This is my text" >> text.txt 
+      - name: "success text creation"
+        run: echo "Successfully text.txt file created"
+      - name: "Remove the work"
+        run : |
+          cd ..
+          rm -rf myfolder2
+          echo "Clean the process...!"
