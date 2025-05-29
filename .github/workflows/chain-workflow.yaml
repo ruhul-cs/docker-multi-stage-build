@@ -71,7 +71,8 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     steps:
-      - name: Send Webhook Notification
+      - name: Notify Discord
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Unit Testing Completed"}' "${{ secrets.WEBHOOK_URL }}"
-
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"content":"Unit Testing Completed"}' \
+          "${{ secrets.DISCORD_WEBHOOK_URL }}"
