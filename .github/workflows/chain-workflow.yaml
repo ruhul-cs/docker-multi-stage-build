@@ -1,7 +1,6 @@
 name: CI Check Pipeline Integration
 
 on: 
-  workflow_dispatch:
   pull_request:
     branches: [main]
   push:
