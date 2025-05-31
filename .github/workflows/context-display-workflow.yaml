@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: Print context meta data 
-        run: echo "${{ toJSON(github }}"
+        run: echo "${{ toJSON(github) }}"
       - name: "Print env secrect keys"
         run: echo "This is secrect key"
