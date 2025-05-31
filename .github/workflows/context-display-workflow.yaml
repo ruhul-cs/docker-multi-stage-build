@@ -8,3 +8,7 @@ jobs:
         run: echo "${{ toJSON(github) }}"
       - name: "Print env secrect keys"
         run: echo "This is secrect key"
+      - name: "Print job"
+        run: echo "${{ toJSON(jobs) }}"
+      - name: "Print Matrix"
+        run: echo "${{ toJSON(matrix) }}"
