@@ -4,11 +4,11 @@ on:
     types:
       - closed
   workflow_dispatch:
-  jobs:
-    deploy:
-      runs-on: ubuntu-latest 
-      steps:
-        - name: "Pull Request Close Event Trigger Checking"
-          run : echo "Pull Request Close Event Trigger Checking"
-        - name: "Pull Request End print message"
-          run: echo "bye!"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: "Pull Request Close Event Trigger Checking"
+        run : echo "Pull Request Close Event Trigger Checking"
+      - name: "Pull Request End print message"
+        run: echo "bye!"
