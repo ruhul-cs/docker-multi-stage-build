@@ -6,3 +6,4 @@ jobs:
     steps:
       - name: Print context meta data 
         run: echo "${{ toJSON(github}}"
+      - name: "Print env secrect keys"
