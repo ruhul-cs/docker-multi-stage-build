@@ -1,0 +1,9 @@
+name: meta data context display
+on: workflow_dispatch
+jobs:
+  display-context:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Print context meta data 
+        run: echo "${{ toJSON(github}}"
+      - name: 
