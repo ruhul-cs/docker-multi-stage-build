@@ -10,4 +10,5 @@ on:
       steps:
         - name: "Pull Request Close Event Trigger Checking"
           run : echo "Pull Request Close Event Trigger Checking"
-        
+        - name: "Pull Request End print message"
+          run: echo "bye!"
