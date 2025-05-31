@@ -1,6 +1,6 @@
 name: CI Check Pipeline Integration
 
-on:
+on: 
   pull_request:
     branches: [main]
   push:
@@ -70,13 +70,8 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     steps:
-      - name: Send Webhook Notification
+      - name: Notify Discord
         run: |
-          curl -X POST -H 'Content-Type: application/json' \
-          -d '{
-            "text": "A commit has been merged into *main* in repository: '${{ github.repository }}'",
-            "commit": "${{ github.sha }}",
-            "url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
-          }' \
-          https://discordapp.com/api/webhooks/1288828610026672200/l7T-5Z9KXnYXEsrXxm5pJ_ExkD906qC6XicL83JzZL7AdDZhocp072LbrBgCR_Oek0Q8
-
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"content":"Unit Testing Completed"}' \
+          "${{ secrets.DISCORD_WEBHOOK_URL }}"
