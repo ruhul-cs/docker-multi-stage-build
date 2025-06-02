@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/app.mjs",
     "test": "vitest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build":"rm -rf dist && mkdir dist && cd dist && echo 'this is text' >> myfile.txt"
   },
   "author": "",
   "license": "ISC",
