@@ -51,7 +51,8 @@ jobs:
         run: pwd
       - name: See all the files in a folder
         run: ls -a 
-      - name: Execute the existing executable file
-        run:  echo "wait..!"
+      - name: Run npm build command 
+        run:  npm run build 
+        
       - name: Deploy the artifact 
         run: echo "deploy successful..!"
