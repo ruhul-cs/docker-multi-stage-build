@@ -36,6 +36,6 @@ jobs:
           name: dist-file  # this is the artifact name
           path: | # the location of the file  # downloading the package.json file 
               dist
-           
+              .github/workflow
 
   
