@@ -47,5 +47,11 @@ jobs:
         with:
           name: dist-file # to download from another job, the name must be same as given
           # (ref-a)
+      - name: Check the working directory of the runner
+        run: pwd
+      - name: See all the files in a folder
+        run: ls -a 
+      - name: Execute the existing executable file
+        run:  echo "wait..!"
       - name: Deploy the artifact 
         run: echo "deploy successful..!"
