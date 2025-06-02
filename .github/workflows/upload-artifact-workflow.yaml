@@ -1,0 +1,41 @@
+# --------------------------------------------------------------------
+### What is JOB Artifact ? 
+## Official documentation url : 
+## https://github.com/actions/upload-artifact
+# In Github Actions job artifact is a feature that helps to generate
+# a file or output or executable file to store and download or to 
+# use it for other job. 
+# -------------------------------------------------------------------
+
+name: Job Artifact Store in GitHub Repository 
+on:
+  push:
+    branches:
+      - main 
+jobs:
+  test:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Get Code 
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci 
+  build:
+    needs: test 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code 
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci 
+      - name: Build WebSite
+        run: npm run build 
+      - name: upload artifacts 
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-file  # this is the artifact name
+          path: | # the location of the file  # downloading the package.json file 
+              package.json  
+           
+
+  
