@@ -33,9 +33,19 @@ jobs:
       - name: upload artifacts 
         uses: actions/upload-artifact@v4
         with:
-          name: dist-file  # this is the artifact name
+          name: dist-file  # this is the artifact name (ref-a)
           path: | # the location of the file  # downloading the package.json file 
               dist
               package.json
 
-  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the artifact from build job workflow
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-file # to download from another job, the name must be same as given
+          # (ref-a)
+      - name: Deploy the artifact 
+        run: echo "deploy successful..!"
