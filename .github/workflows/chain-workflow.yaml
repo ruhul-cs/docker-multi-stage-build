@@ -69,9 +69,12 @@ jobs:
     needs: docker
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
+    # To set secrets.DISCORD_WEBHOOK_URL in GITHUB repo
+    # 1. Settings of GitHub Repo 2. Click (Security -> Actions) 3. go to Variables Tab
     steps:
       - name: Notify Discord
         run: |
           curl -X POST -H "Content-Type: application/json" \
           -d '{"content":"Unit Testing Completed"}' \
           "${{ secrets.DISCORD_WEBHOOK_URL }}"
+      
