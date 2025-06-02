@@ -53,6 +53,7 @@ jobs:
         run: ls -a 
       - name: Run npm build command 
         run:  npm run build 
-        
+      - name: Go to dist and Execute executioner.sh file
+        run: cd dist && ./executioner.sh        
       - name: Deploy the artifact 
         run: echo "deploy successful..!"
