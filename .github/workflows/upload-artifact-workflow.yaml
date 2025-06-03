@@ -26,6 +26,11 @@ jobs:
     steps:
       - name: Get code 
         uses: actions/checkout@v4
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm # This is the home directory of the runner 
+          key: deps-node-module-${{ hashFiles('**/package-lock.json') }}   # must provide key for dependency caching
       - name: Install dependencies
         run: npm ci 
       - name: Build WebSite
