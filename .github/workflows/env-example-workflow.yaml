@@ -10,10 +10,10 @@ jobs:
     # environment variable declaration on job level
     env: 
       MONGODB_CLUSTER_ADDRESS: ${{ secrets.MONGODB_CLUSTER_ADDRESS }}
-      # if it is a secrect MONGODB_PASSWORD: ${{ secrects.MONGODB_PASSWORD }}
+      # if it is a secrect MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
-      PORT: 8081
+      PORT: ${{ secrets.PORT }}
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
