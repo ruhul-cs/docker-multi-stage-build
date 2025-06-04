@@ -1,0 +1,38 @@
+name: Deployment
+on: workflow_dispatch
+# We can declare env variable on workflow level sothat all the jobs can access the keys
+
+jobs:
+  test:
+    # Add environment for the project
+    environment: development
+    # env variable for this specific job and not shared to other job
+    # environment variable declaration on job level
+    env: 
+      # if it is not secrect MONGODB_USERNAME:  ${{ env.MONGODB_USERNAME }} 
+      PROJECT_NAME: ${{ env.PROJECT_NAME }}
+      MONGODB_CLUSTER_ADDRESS: ${{ secrects.MONGODB_CLUSTER_ADDRESS }}
+      # if it is a secrect MONGODB_PASSWORD: ${{ secrects.MONGODB_PASSWORD }}
+      MONGODB_USERNAME: ${{ secrects.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrects.MONGODB_PASSWORD }}
+      PORT: 8081
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-deps-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Output information
+        run: echo "..."
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output information
+        run: |        
+          echo "..."

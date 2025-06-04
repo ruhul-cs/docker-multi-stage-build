@@ -22,5 +22,4 @@ jobs:
           path: ~/.npm
           key: node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependency
-        run: npm ci 
-      - name: Lint code
+        run: npm ci
