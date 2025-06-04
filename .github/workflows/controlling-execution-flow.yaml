@@ -14,7 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: job1
-        run: echo "job1"
+        id: jobid-1
+        run: exit 1 # this statement forcfully fail the step
+      - name: execute failure message
+        if: steps.jobid-1.outcome == 'failure'
+        run: echo 'Process has been failed!'
+
   job2:
     needs: job1 
     runs-on: ubuntu-latest
