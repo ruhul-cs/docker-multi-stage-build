@@ -1,0 +1,29 @@
+# Other dependent jobs using "needs" would be cancelled / aborted
+# if a previous job fails.
+name: Conditional Jobs Example
+on: workflow_dispatch
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hellow
+        run: echo "Hellow"
+  
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job1
+        run: echo "job1"
+  job2:
+    needs: job1 
+    runs-on: ubuntu-latest
+    steps:
+      - name: job2
+        run: echo "job2"
+  job3:
+    needs: job2 
+    runs-on: ubuntu-latest
+    steps:
+      - name: job3
+        run: echo "job3"
