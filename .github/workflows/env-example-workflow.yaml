@@ -1,4 +1,4 @@
-name: Deployment
+name: Environment and env variable setup with security
 on: workflow_dispatch
 # We can declare env variable on workflow level sothat all the jobs can access the keys
 
@@ -9,12 +9,10 @@ jobs:
     # env variable for this specific job and not shared to other job
     # environment variable declaration on job level
     env: 
-      # if it is not secrect MONGODB_USERNAME:  ${{ env.MONGODB_USERNAME }} 
-      PROJECT_NAME: ${{ env.PROJECT_NAME }}
-      MONGODB_CLUSTER_ADDRESS: ${{ secrects.MONGODB_CLUSTER_ADDRESS }}
+      MONGODB_CLUSTER_ADDRESS: ${{ secrets.MONGODB_CLUSTER_ADDRESS }}
       # if it is a secrect MONGODB_PASSWORD: ${{ secrects.MONGODB_PASSWORD }}
-      MONGODB_USERNAME: ${{ secrects.MONGODB_USERNAME }}
-      MONGODB_PASSWORD: ${{ secrects.MONGODB_PASSWORD }}
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8081
     runs-on: ubuntu-latest
     steps:
@@ -29,6 +27,8 @@ jobs:
         run: npm ci
       - name: Output information
         run: echo "..."
+      - name: Print variables
+        run: echo "Project name is ${{ vars.PROJECT_NAME }}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
