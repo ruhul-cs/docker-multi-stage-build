@@ -16,10 +16,16 @@ jobs:
       - name: job1
         id: jobid-1
         # continue-on-error helps to tell GitHub Actions to continue running subsequent steps even if this step fails
-        continue-on-error: true 
+        # continue-on-error: true  | will experiment later
         run: exit 1 # this statement forcfully fail the step
       - name: execute failure message
-        if: steps.jobid-1.outcome == 'failure'
+        ## There are four functions 
+        # 1. failure() returns true if a previous step or job fails
+        # 2. cancelled() returns true if a workflow has been cancelled
+        # 3. success() return true if none of the previous steps failed
+        # 4. always() returns true
+        
+        if: failure()  && steps.jobid-1.outcome == 'failure'
         run: echo 'Process has been failed!'
 
   job2:
