@@ -6,12 +6,16 @@ on: workflow_dispatch
 jobs:
   lint:
     runs-on: ubuntu-latest
+    container:
+      image: node:18
     steps:
       - name: Hellow
         run: echo "Hellow"
   
   job1:
     runs-on: ubuntu-latest
+    container:
+      image: node:18
     steps:
       - name: job1
         id: jobid-1
@@ -24,19 +28,23 @@ jobs:
         # 2. cancelled() returns true if a workflow has been cancelled
         # 3. success() return true if none of the previous steps failed
         # 4. always() returns true
-        
+
         if: failure()  && steps.jobid-1.outcome == 'failure'
         run: echo 'Process has been failed!'
 
   job2:
     needs: job1 
     runs-on: ubuntu-latest
+    container:
+      image: node:18
     steps:
       - name: job2
         run: echo "job2"
   job3:
     needs: job2 
     runs-on: ubuntu-latest
+    container:
+      image: node:18
     steps:
       - name: job3
         run: echo "job3"
