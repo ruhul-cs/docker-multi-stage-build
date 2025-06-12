@@ -1,0 +1,8 @@
+name: reusable workflow implementation example
+on: workflow_dispatch
+jobs:
+    myfirstjob:
+        runs-on: ubutu-latest
+        steps:
+            - name: run reusable workflow
+              uses: ./.github/workflows/reusable-workflow.yaml

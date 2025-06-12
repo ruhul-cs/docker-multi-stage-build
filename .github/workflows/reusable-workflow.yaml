@@ -1,0 +1,9 @@
+name: Reusable workflow 
+on: workflow_call
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Output information
+              run: echo "Reusable workflow implementation on progress...."
