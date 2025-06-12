@@ -102,3 +102,32 @@ be a game changer. Dependency caching can be a greate choice. If we cache those 
 Get Code --> Install Dependency --> Test App
 
 Get Code --> Install Dependency --> Build Project
+
+### Generate new SSH key
+
+    ``` bash
+        cd ~/.ssh
+        ssh-keygen
+        cat ~/.ssh/id_rsa.pub
+        ssh -T git@github.com
+    ```
+
+
+### Service order workflow example:
+
+```bash
+name: Service order workflow example
+on: workflow_dispatch
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    services:
+      # Side containers (run first)
+    container:
+      # Main execution container (run second)
+    steps:
+      # Run commands inside main container
+    
+
+```
