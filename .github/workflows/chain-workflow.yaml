@@ -78,3 +78,12 @@ jobs:
           -d '{"content":"Unit Testing Completed"}' \
           "${{ secrets.DISCORD_WEBHOOK_URL }}"
       
+  job-fail-nofity:
+    needs: [notify, test] # This two jobs execution needed first. 
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Information
+        run: |
+          echo "Deployment fail..."
+          echo "${{ github }}"
