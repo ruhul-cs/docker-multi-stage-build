@@ -2,7 +2,6 @@ name: Reusable trigger workflow
 on: workflow_dispatch
 jobs:
     myfirstjob:
-        runs-on: ubuntu-latest
-        steps:
-            - name: run reusable workflow
-              uses: ./.github/workflows/reusable-workflow.yaml
+        # reusable workflow does not work on steps level
+        # reusable workflow only works on job level
+        uses: ./.github/workflows/reusable-workflow.yaml
