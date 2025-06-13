@@ -1,5 +1,16 @@
 name: Reusable workflow 
-on: workflow_call
+on: # workflow_call
+    # an event 
+    workflow_call:
+        inputs:
+            artifact-name:
+                description: Example description
+                required: false  # can be false if the inputs value does not required in the jobs
+                default: my-artifact
+                type: string
+        # secrets:
+        #     some-secrect:
+        #         required: true
 
 jobs:
     deploy:
