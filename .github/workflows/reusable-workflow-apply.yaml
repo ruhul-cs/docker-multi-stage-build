@@ -1,4 +1,4 @@
-name: reusable workflow implementation example
+name: Reusable trigger workflow 
 on: workflow_dispatch
 jobs:
     myfirstjob:
